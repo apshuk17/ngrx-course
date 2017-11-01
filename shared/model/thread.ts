@@ -2,8 +2,9 @@
 
 export interface Thread {
 
-    id:number;
+    id: number;
     messageIds: number[];
-    participants: {[key:number]: number}
+    // number of unread messages per participant
+    participants: {[key: number]: number};
 
 }

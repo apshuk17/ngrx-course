@@ -1,9 +1,9 @@
 
 
 
-import {Participant} from "../../shared/model/participant";
-import {Thread} from "../../shared/model/thread";
-import {Message} from "../../shared/model/message";
+import {Participant} from '../../shared/model/participant';
+import {Thread} from '../../shared/model/thread';
+import {Message} from '../../shared/model/message';
 
 
 export const dbParticipants: {[key: number]: Participant} = {
