@@ -3,37 +3,25 @@ import { AllUserData } from '../../../shared/to/all-user-data';
 import { ApplicationState, INITIAL_APPLICATION_STATE } from './application-state';
 import * as _ from 'lodash';
 
+export const USER_THREADS_LOADED_ACTION = 'USER_THREADS_LOADED_ACTION';
 export const LOAD_USER_THREADS_ACTION = 'LOAD_USER_THREADS_ACTION';
+export const THREAD_SELECTED_ACTION = 'THREAD_SELECTED_ACTION';
 
-const handleLoadUserThreadsAction =
-(state: ApplicationState, action: LoadUserThreads): ApplicationState => {
-    const userData = action.payload;
 
-    const newState = Object.assign({}, state);
-    newState.storeData = {
-        participants: _.keyBy(userData.participants, 'id'),
-        threads: _.keyBy(userData.threads, 'id'),
-        messages: _.keyBy(userData.messages, 'id')
-    };
-    console.log(newState);
-    return newState;
-};
-
-export class LoadUserThreads implements Action {
-
+export class LoadUserThreadsAction implements Action {
     readonly type: string = LOAD_USER_THREADS_ACTION;
+}
+
+export class UserThreadsLoadedAction implements Action {
+
+    readonly type: string = USER_THREADS_LOADED_ACTION;
 
     constructor(public payload?: AllUserData) {}
 };
 
-export const storeReducer = 
-(state: ApplicationState = INITIAL_APPLICATION_STATE, action: Action): ApplicationState => {
-    switch(action.type) {
-        case LOAD_USER_THREADS_ACTION:
-            return handleLoadUserThreadsAction(state, action);
+export class ThreadSelectedAction implements Action {
+    readonly type: string = THREAD_SELECTED_ACTION;
 
-        default:
-            return state;
+    constructor(public payload?: number) {}
+}
 
-    }
-};

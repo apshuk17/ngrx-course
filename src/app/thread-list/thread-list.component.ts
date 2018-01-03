@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'thread-list',
@@ -7,7 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ThreadListComponent implements OnInit {
 
+  @Input()
+  public threads;
+
+  @Output()
+  threadSelected = new EventEmitter();
+
   constructor() { }
+
+  selectThread(threadId: number) {
+    this.threadSelected.next(threadId);
+  }
 
   ngOnInit() {
 

@@ -12,9 +12,7 @@ export class MessageSectionComponent implements OnInit {
   constructor(private store: Store<ApplicationState>) { }
 
   ngOnInit() {
-    this.store.subscribe(
-      state => console.log('Message section received state', state)
-    );
+
   }
 
 }
