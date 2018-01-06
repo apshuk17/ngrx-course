@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { MessageVM } from '../message-section/message.vm';
 
 @Component({
   selector: 'message-list',
@@ -8,7 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class MessageListComponent implements OnInit {
 
   @Input()
-  messages;
+  messages: MessageVM[];
 
   constructor() { }
 
