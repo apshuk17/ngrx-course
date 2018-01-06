@@ -1,3 +1,5 @@
-<p>
-  message-section works!
-</p>
+<div class="message-section">
+  <h3 class="message-thread-heading">{{ participantsName$ | async }}</h3>
+  <message-list [messages]="messages$ | async"></message-list>
+  <textarea name="message" id="" cols="30" rows="10" class="message-composer"></textarea>
+</div>
