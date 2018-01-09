@@ -44,8 +44,6 @@ export class ThreadSectionComponent implements OnInit {
       return currentThreadId;
     });
 
-    this.store.dispatch(new LoadUserThreadsAction());
-
   }
 
 }
